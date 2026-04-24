@@ -311,7 +311,6 @@ const VerifyUploadPage = (() => {
       </button>` : ''}
     </div>`;
   }
-  }
 
   // ── Report fake ──────────────────────────────────────────────────────
   function reportFake(fileName, verdict, checks) {
