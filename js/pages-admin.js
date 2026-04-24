@@ -22,25 +22,25 @@ const AdminPages = (() => {
             <div class="user-role">Administrator</div>
           </div>
         </div>
-        <nav class="sidebar-nav">
-          <button class="nav-item active" id="nav-overview" onclick="AdminPages.showSection('overview')">
+        <nav class="sidebar-nav" id="admin-sidebar-nav">
+          <button class="nav-item active" id="nav-overview" data-section="overview">
             <span class="nav-icon">📊</span> Overview
           </button>
-          <button class="nav-item" id="nav-requests" onclick="AdminPages.showSection('requests')">
+          <button class="nav-item" id="nav-requests" data-section="requests">
             <span class="nav-icon">📋</span> All Requests
           </button>
-          <button class="nav-item" id="nav-users" onclick="AdminPages.showSection('users')">
+          <button class="nav-item" id="nav-users" data-section="users">
             <span class="nav-icon">👥</span> Users
           </button>
-          <button class="nav-item" id="nav-reports" onclick="AdminPages.showSection('reports')">
+          <button class="nav-item" id="nav-reports" data-section="reports">
             <span class="nav-icon">🚨</span> Fake Reports
           </button>
-          <button class="nav-item" id="nav-verify" onclick="App.showVerifyUpload()">
-            <span class="nav-icon">🛡️</span> Verify Certificate
+          <button class="nav-item" id="nav-verify" data-action="verify">
+            <span class="nav-icon">🛡</span> Verify Certificate
           </button>
         </nav>
         <div class="sidebar-footer">
-          <button class="btn btn-ghost btn-block" onclick="App.logout()">🚪 Sign Out</button>
+          <button class="btn btn-ghost btn-block" id="admin-signout-btn">🚪 Sign Out</button>
         </div>
       </aside>
       <main class="main-content">
@@ -272,6 +272,21 @@ const AdminPages = (() => {
 
   function init(user) {
     document.getElementById('app').innerHTML = renderShell(user);
+
+    // Wire sidebar navigation via addEventListener (avoids inline onclick emoji issues)
+    const nav = document.getElementById('admin-sidebar-nav');
+    if (nav) {
+      nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-section],[data-action]');
+        if (!btn) return;
+        if (btn.dataset.section) showSection(btn.dataset.section);
+        else if (btn.dataset.action === 'verify') App.showVerifyUpload();
+      });
+    }
+
+    const signoutBtn = document.getElementById('admin-signout-btn');
+    if (signoutBtn) signoutBtn.addEventListener('click', () => App.logout());
+
     showSection('overview');
   }
 

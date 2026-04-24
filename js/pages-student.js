@@ -23,22 +23,22 @@ const StudentPages = (() => {
             <div class="user-role">Student</div>
           </div>
         </div>
-        <nav class="sidebar-nav">
-          <button class="nav-item active" id="nav-overview" onclick="StudentPages.showSection('overview')">
+        <nav class="sidebar-nav" id="student-sidebar-nav">
+          <button class="nav-item active" id="nav-overview" data-section="overview">
             <span class="nav-icon">📊</span> Overview
           </button>
-          <button class="nav-item" id="nav-apply" onclick="StudentPages.showSection('apply')">
+          <button class="nav-item" id="nav-apply" data-section="apply">
             <span class="nav-icon">➕</span> Apply for Certificate
           </button>
-          <button class="nav-item" id="nav-mycerts" onclick="StudentPages.showSection('mycerts')">
+          <button class="nav-item" id="nav-mycerts" data-section="mycerts">
             <span class="nav-icon">📜</span> My Certificates
           </button>
-          <button class="nav-item" id="nav-verify" onclick="App.showVerifyUpload()">
-            <span class="nav-icon">🛡️</span> Verify Certificate
+          <button class="nav-item" id="nav-verify" data-action="verify">
+            <span class="nav-icon">🛡</span> Verify Certificate
           </button>
         </nav>
         <div class="sidebar-footer">
-          <button class="btn btn-ghost btn-block" onclick="App.logout()">🚪 Sign Out</button>
+          <button class="btn btn-ghost btn-block" id="student-signout-btn">🚪 Sign Out</button>
         </div>
       </aside>
 
@@ -212,6 +212,21 @@ const StudentPages = (() => {
 
   function init(user) {
     document.getElementById('app').innerHTML = renderShell(user);
+
+    // Wire sidebar via addEventListener — avoids inline onclick emoji attribute issues
+    const nav = document.getElementById('student-sidebar-nav');
+    if (nav) {
+      nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-section],[data-action]');
+        if (!btn) return;
+        if (btn.dataset.section) showSection(btn.dataset.section);
+        else if (btn.dataset.action === 'verify') App.showVerifyUpload();
+      });
+    }
+
+    const signoutBtn = document.getElementById('student-signout-btn');
+    if (signoutBtn) signoutBtn.addEventListener('click', () => App.logout());
+
     showSection('overview');
   }
 
