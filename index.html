@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CertiFlow – Digital Certificate Issuance &amp; Verification</title>
+  <meta name="description" content="CertiFlow automates the entire certificate lifecycle: apply, approve, generate PDF with QR, download, and verify." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- QRCode.js (for generating QR in PDFs) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- jsQR (for scanning QR from uploaded images) -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <!-- PDF.js (for rendering uploaded PDFs to canvas) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    // Set PDF.js worker
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Core modules -->
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/certificates.js"></script>
+
+  <!-- Page modules -->
+  <script src="js/pages-auth.js"></script>
+  <script src="js/pages-student.js"></script>
+  <script src="js/pages-admin.js"></script>
+  <script src="js/pages-verify.js"></script>
+
+  <!-- Verification module -->
+  <script src="js/verify-engine.js"></script>
+  <script src="js/pages-verify-upload.js"></script>
+
+  <!-- Router (must be last) -->
+  <script src="js/app.js"></script>
+</body>
+</html>
