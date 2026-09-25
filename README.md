@@ -1,79 +1,51 @@
-# CertiFlow — Digital Certificate System 🎓
+# eCertiSystem 🎓
 
-A browser-based digital certificate issuance and verification system with **PDF generation, QR codes, certificate management, and authenticity checks**.
+A browser-based **digital certificate issuance and verification system** with PDF generation, QR verification, certificate management, and authenticity workflows.
 
-**Demo:** https://pavanwadile77.github.io/eCertiSystem/
+🌐 **Demo:** https://pavanwadile77.github.io/eCertiSystem/
 
-## ✨ Core Workflow
-
+## 🔄 Certificate Workflow
 ```text
-Student submits request
-        ↓
-Admin reviews request
-        ↓
-Certificate approved
-        ↓
-PDF + QR generated
-        ↓
-Student downloads certificate
-        ↓
-Certificate verified publicly
+Application → Admin Review → Approval → PDF + QR
+→ Download → Public Verification
 ```
 
-## Features
-
+## ✨ Features
 ### Student
-- Signup/login
 - Certificate applications
-- Application status tracking
+- Status tracking
 - Certificate download
-- QR-based verification
+- QR verification
 
 ### Admin
-- Certificate request management
+- Request management
 - Search and filtering
-- Approve/reject workflow
-- User management
-- Reports dashboard
+- Approve / reject workflow
+- User management and reports
 
 ### Verification
 - QR / certificate ID validation
-- Certificate metadata checks
-- Template-integrity checks
-- Hash-based checks
+- Metadata and hash checks
 - Tamper-detection workflow
 - Public verification page
 
-## 🛠 Tech Stack
-
-- HTML5
-- CSS3
-- JavaScript
-- jsPDF
-- QRCode.js
-- jsQR
-- PDF.js
-- Web Crypto API
-- localStorage
-- Google Fonts
+## 🛠️ Tech Stack
+**HTML5 · CSS3 · JavaScript · jsPDF · QRCode.js · jsQR · PDF.js · Web Crypto API · localStorage**
 
 ## ▶️ Run Locally
-
 ```bash
 git clone https://github.com/PavanWadile77/eCertiSystem.git
 cd eCertiSystem
 ```
 
-Open the application through a local web server for the best browser compatibility.
+Use a local web server for best browser compatibility.
 
-## ⚠️ Demo Credentials
+## 🔗 Links
+- 🌐 [Demo](https://pavanwadile77.github.io/eCertiSystem/)
+- 💻 [GitHub Repository](https://github.com/PavanWadile77/eCertiSystem)
 
-Demo credentials may be present in the application for demonstration purposes. Do not use demo credentials or hard-coded passwords in a production deployment.
+## 🔐 Security
+Production deployments should use secure authentication and server-side validation.
 
-## Repository
-
-https://github.com/PavanWadile77/eCertiSystem
-
-## Author
-
+## 👨‍💻 Author
 **Pavan Wadile**
