@@ -1,5 +1,14 @@
 # eCertiSystem 🎓
 
+<div align="center">
+
+**Web Application • Certificate Verification**
+
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+
+</div>
+
+
 A browser-based **digital certificate issuance and verification system** with PDF generation, QR verification, certificate management, and authenticity workflows.
 
 🌐 **Demo:** https://pavanwadile77.github.io/eCertiSystem/
@@ -49,3 +58,17 @@ Production deployments should use secure authentication and server-side validati
 
 ## 👨‍💻 Author
 **Pavan Wadile**
+
+## 🔧 Engineering Focus
+
+Digital certificate issuance, PDF generation, QR verification and authenticity workflows.
+
+---
+
+<div align="center">
+
+**Pavan Wadile · B.Tech Information Technology**
+
+[GitHub](https://github.com/PavanWadile77)
+
+</div>
